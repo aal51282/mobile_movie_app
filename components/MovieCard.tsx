@@ -1,8 +1,7 @@
 import { icons } from "@/constants/icons";
-import { Text } from "@react-navigation/elements";
 import { Link } from "expo-router";
 import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const MovieCard = ({
   id,
@@ -11,7 +10,7 @@ const MovieCard = ({
   vote_average,
   release_date,
 }: Movie) => {
-  console.log(poster_path);
+  //   console.log(poster_path);
   return (
     <Link href={`/movies/${id}`} asChild>
       <TouchableOpacity className="w-[30%]">
