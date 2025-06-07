@@ -43,7 +43,11 @@ const Search = () => {
             </View>
 
             <View className="my-5">
-              <SearchBar placeholder="Search for a movie" />
+              <SearchBar
+                placeholder="Search for a movie"
+                value={searchQuery}
+                onChangeText={(text: string) => setSearchQuery(text)}
+              />
             </View>
 
             {loading && (
@@ -60,15 +64,12 @@ const Search = () => {
               </Text>
             )}
 
-            {!loading &&
-              !error &&
-              "SEARCH TERM".trim() &&
-              movies?.length > 0 && (
-                <Text className="text-xl text-white font-bold">
-                  Search results for{" "}
-                  <Text className="text-accent">SEARCH TERM</Text>
-                </Text>
-              )}
+            {!loading && !error && searchQuery.trim() && movies?.length > 0 && (
+              <Text className="text-xl text-white font-bold">
+                Search results for{" "}
+                <Text className="text-accent">{searchQuery}</Text>
+              </Text>
+            )}
           </>
         }
       />
