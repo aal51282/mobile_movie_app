@@ -75,3 +75,56 @@ interface TrendingCardProps {
   movie: TrendingMovie;
   index: number;
 }
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  avatar?: string;
+  bio?: string;
+  joinDate: string;
+  stats: {
+    moviesWatched: number;
+    favorites: number;
+    reviews: number;
+    watchTime: number;
+  };
+  preferences: {
+    language: string;
+    notifications: boolean;
+    autoPlay: boolean;
+    downloadQuality: "low" | "medium" | "high";
+  };
+}
+
+interface UserStats {
+  moviesWatched: number;
+  favorites: number;
+  reviews: number;
+  watchTime: number;
+}
+
+interface ProfileItemProps {
+  icon: any;
+  title: string;
+  subtitle?: string;
+  onPress?: () => void;
+  showArrow?: boolean;
+}
+
+interface StatCardProps {
+  number: string;
+  label: string;
+}
+
+interface ProfileCardProps {
+  name: string;
+  subtitle: string;
+  avatar?: string;
+  stats?: {
+    label: string;
+    value: string;
+  }[];
+  onPress?: () => void;
+  compact?: boolean;
+}
