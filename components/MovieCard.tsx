@@ -2,6 +2,7 @@ import { icons } from "@/constants/icons";
 import { Link } from "expo-router";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import SaveButton from "./SaveButton";
 
 const MovieCard = ({
   id,
@@ -9,20 +10,55 @@ const MovieCard = ({
   title,
   vote_average,
   release_date,
+  adult = false,
+  backdrop_path = "",
+  genre_ids = [],
+  original_language = "",
+  original_title = "",
+  overview = "",
+  popularity = 0,
+  video = false,
+  vote_count = 0,
 }: Movie) => {
   //   console.log(poster_path);
   return (
     <Link href={`/movies/${id}`} asChild>
       <TouchableOpacity className="w-[30%]">
-        <Image
-          source={{
-            uri: poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : "https://placehold.co/600x400/1a1a1a/ffffff.png",
-          }}
-          className="w-full h-52 rounded-lg"
-          resizeMode="cover"
-        />
+        <View className="relative">
+          <Image
+            source={{
+              uri: poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : "https://placehold.co/600x400/1a1a1a/ffffff.png",
+            }}
+            className="w-full h-52 rounded-lg"
+            resizeMode="cover"
+          />
+
+          <SaveButton
+            movieId={id}
+            movieData={
+              {
+                id,
+                poster_path,
+                title,
+                vote_average,
+                release_date,
+                adult,
+                backdrop_path,
+                genre_ids,
+                original_language,
+                original_title,
+                overview,
+                popularity,
+                video,
+                vote_count,
+              } as Movie
+            }
+            size={4}
+            position="bottom-right"
+          />
+        </View>
 
         <Text className="text-sm font-bold text-white mt-2" numberOfLines={1}>
           {title}
