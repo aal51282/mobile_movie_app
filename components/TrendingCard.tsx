@@ -1,8 +1,8 @@
+import { images } from "@/constants/images";
+import MaskedView from "@react-native-masked-view/masked-view";
 import { Link } from "expo-router";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import MaskedView from "@react-native-masked-view/masked-view";
-import { images } from "@/constants/images";
 
 const TrendingCard = ({
   movie: { movie_id, title, poster_url },
@@ -30,6 +30,13 @@ const TrendingCard = ({
             />
           </MaskedView>
         </View>
+
+        <Text
+          className="text-light-200 text-sm font-bold mt-2"
+          numberOfLines={2}
+        >
+          {title}
+        </Text>
       </TouchableOpacity>
     </Link>
   );
